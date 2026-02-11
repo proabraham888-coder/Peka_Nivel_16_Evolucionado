@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P.E.K.K.A Nivel 15 - Clash Royale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(120deg, #ff416c, #ff4b2b);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 3.5em;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .peka-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            margin: 30px 0;
+            animation: pulse 2s infinite;
+            border: 5px solid #ff416c;
+        }
+
+        .stats {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 2px solid #ff416c;
+        }
+
+        .stats h2 {
+            color: #ff416c;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-item h3 {
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: #ff416c;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .audio-controls {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px solid #ff416c;
+        }
+
+        .audio-controls h2 {
+            color: #ff416c;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 500px;
+            outline: none;
+        }
+
+        .level-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(120deg, #ffd700, #ff8c00);
+            color: #333;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.5em;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .attack-button {
+            background: linear-gradient(120deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 15px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+        }
+
+        .attack-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
+        }
+
+        .attack-button:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px #ffd700;
+            }
+            50% {
+                box-shadow: 0 0 30px #ff8c00;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="level-badge">NIVEL 15</div>
+            <h1>⚔️ P.E.K.K.A ⚔️</h1>
+            <p>La guerrera más poderosa de Clash Royale</p>
+        </div>
+
+        <div class="content">
+            <img src="https://files.catbox.moe/yvqd8r.jpg" alt="P.E.K.K.A Nivel 15" class="peka-image">
+
+            <div class="stats">
+                <h2>📊 ESTADÍSTICAS</h2>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <h3>Daño</h3>
+                        <p>1,250</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Vida</h3>
+                        <p>4,800</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Velocidad</h3>
+                        <p>Media</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Coste</h3>
+                        <p>7 Elixir</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="audio-controls">
+                <h2>🎵 SONIDO DE ATAQUE</h2>
+                <audio controls>
+                    <source src="peka_attack.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+                <p style="color: white; margin-top: 10px; font-size: 0.9em;">
+                    Nota: Reemplaza "peka_attack.mp3" con tu archivo de audio de P.E.K.K.A
+                </p>
+            </div>
+
+            <button class="attack-button" onclick="playSound()">¡ATAQUE P.E.K.K.A!</button>
+        </div>
+    </div>
+
+    <script>
+        function playSound() {
+            const audio = document.querySelector('audio');
+            if (audio) {
+                audio.currentTime = 0;
+                audio.play().catch(error => {
+                    console.log('Error al reproducir audio:', error);
+                });
+            }
+        }
+
+        // Efectos adicionales
+        document.addEventListener('DOMContentLoaded', function() {
+            const attackButton = document.querySelector('.attack-button');
+            
+            attackButton.addEventListener('click', function() {
+                // Efecto de ataque
+                document.body.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 500);
+            });
+        });
+
+        // Animación de shake
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+                20%, 40%, 60%, 80% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
