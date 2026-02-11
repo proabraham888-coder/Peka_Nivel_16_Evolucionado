@@ -31,34 +31,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230a0e17"/><path d="M0 50 L100 50" stroke="%231a2335" stroke-width="1" opacity="0.3"/><path d="M50 0 L50 100" stroke="%231a2335" stroke-width="1" opacity="0.3"/></svg>');
-            opacity: 0.4;
-            z-index: -1;
-        }
-
-        .arena-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, transparent 70%);
-            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(255, 105, 180, 0.1) 0%, transparent 30%);
+            z-index: -2;
         }
 
         .container {
             width: 95%;
             max-width: 1100px;
-            background: rgba(15, 23, 42, 0.92);
-            border-radius: 25px;
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 28px;
             box-shadow: 
-                0 0 40px rgba(255, 105, 180, 0.4),
-                0 0 80px rgba(138, 43, 226, 0.3);
+                0 0 40px rgba(255, 105, 180, 0.5),
+                0 0 80px rgba(138, 43, 226, 0.4);
             overflow: hidden;
             position: relative;
             border: 4px solid transparent;
             background-clip: padding-box;
-            position: relative;
         }
 
         .container::before {
@@ -70,8 +60,8 @@
             bottom: -4px;
             background: linear-gradient(45deg, #ff6b6b, #ffa500, #ffd700, #ff6b6b);
             z-index: -1;
-            border-radius: 29px;
-            animation: gradientRotate 8s linear infinite;
+            border-radius: 32px;
+            animation: gradientRotate 10s linear infinite;
         }
 
         @keyframes gradientRotate {
@@ -81,65 +71,99 @@
 
         .header {
             text-align: center;
-            padding: 35px 20px;
+            padding: 40px 20px;
             position: relative;
-            background: rgba(25, 35, 65, 0.9);
-            border-bottom: 3px solid #ffd700;
+            background: rgba(25, 35, 65, 0.95);
+            border-bottom: 4px solid #ffd700;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ff6b6b, #ffd700, #ff6b6b, transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         .header h1 {
-            font-size: 4.2em;
-            background: linear-gradient(45deg, #ff6b6b, #ffd700, #ff416c);
+            font-size: 4.5em;
+            background: linear-gradient(45deg, #ff6b6b, #ffd700, #ff416c, #ffd700, #ff6b6b);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 5px 15px rgba(255, 105, 180, 0.5);
-            letter-spacing: 3px;
-            margin-bottom: 10px;
+            text-shadow: 0 5px 20px rgba(255, 105, 180, 0.7);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
             position: relative;
             animation: glowText 2s ease-in-out infinite alternate;
         }
 
         @keyframes glowText {
-            from { text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 105, 180, 0.8); }
-            to { text-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 30px rgba(255, 105, 180, 1), 0 0 40px rgba(255, 105, 180, 0.8); }
+            from { 
+                text-shadow: 0 0 15px rgba(255, 215, 0, 0.9), 
+                             0 0 25px rgba(255, 105, 180, 0.8); 
+            }
+            to { 
+                text-shadow: 0 0 25px rgba(255, 215, 0, 1), 
+                             0 0 40px rgba(255, 105, 180, 1), 
+                             0 0 50px rgba(255, 105, 180, 0.9); 
+            }
         }
 
         .header p {
-            font-size: 1.6em;
+            font-size: 1.8em;
             color: #ffd700;
-            margin-top: 10px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+            margin-top: 15px;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
         }
 
         .level-badge {
             position: absolute;
-            top: 25px;
-            right: 30px;
-            background: radial-gradient(circle, #ffd700 0%, #ff8c00 100%);
+            top: 30px;
+            right: 40px;
+            background: radial-gradient(circle, #ffd700 0%, #ff8c00 70%, #d4af37 100%);
             color: #333;
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2.2em;
+            font-size: 2.8em;
             font-weight: bold;
             box-shadow: 
-                0 0 15px rgba(255, 215, 0, 0.8),
-                0 0 30px rgba(255, 165, 0, 0.7);
-            border: 4px solid #8b4513;
-            animation: badgePulse 1.5s infinite;
+                0 0 20px rgba(255, 215, 0, 0.9),
+                0 0 40px rgba(255, 165, 0, 0.8),
+                0 10px 25px rgba(0, 0, 0, 0.6);
+            border: 6px solid #8b4513;
+            z-index: 10;
+            animation: badgePulse 1.8s infinite;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         @keyframes badgePulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 165, 0, 0.7); }
-            50% { transform: scale(1.08); box-shadow: 0 0 25px rgba(255, 215, 0, 1), 0 0 45px rgba(255, 165, 0, 1); }
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.9), 0 0 40px rgba(255, 165, 0, 0.8);
+            }
+            50% { 
+                transform: scale(1.12); 
+                box-shadow: 0 0 35px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 165, 0, 1);
+            }
         }
 
         .content {
-            padding: 40px;
+            padding: 45px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -148,39 +172,49 @@
         .peka-container {
             position: relative;
             width: 100%;
-            max-width: 650px;
-            margin: 30px 0;
-            perspective: 1000px;
+            max-width: 680px;
+            margin: 35px 0;
+            perspective: 1200px;
         }
 
         .peka-image {
             width: 100%;
-            border-radius: 20px;
+            border-radius: 22px;
             box-shadow: 
-                0 15px 40px rgba(0, 0, 0, 0.8),
-                0 0 30px rgba(255, 105, 180, 0.4);
-            border: 4px solid rgba(255, 215, 0, 0.3);
-            transition: transform 0.3s ease;
-            animation: float 3s ease-in-out infinite;
+                0 20px 50px rgba(0, 0, 0, 0.9),
+                0 0 40px rgba(255, 105, 180, 0.5),
+                inset 0 0 30px rgba(255, 215, 0, 0.3);
+            border: 5px solid rgba(255, 215, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: float 3.5s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            0%, 100% { transform: translateY(0) rotateY(0); }
+            50% { transform: translateY(-20px) rotateY(2deg); }
         }
 
         .peka-image:hover {
-            transform: scale(1.03) rotateY(5deg);
+            transform: scale(1.04) rotateY(3deg) translateY(-5px);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.95),
+                0 0 50px rgba(255, 105, 180, 0.7),
+                inset 0 0 40px rgba(255, 215, 0, 0.5);
+            border-color: rgba(255, 215, 0, 0.8);
         }
 
         .stats-card {
             width: 100%;
-            background: rgba(30, 41, 59, 0.95);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 30px 0;
-            border: 3px solid #ff6b6b;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            background: rgba(30, 41, 59, 0.97);
+            border-radius: 24px;
+            padding: 35px;
+            margin: 35px 0;
+            border: 4px solid #ff6b6b;
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.7),
+                inset 0 0 30px rgba(138, 43, 226, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -191,63 +225,107 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #ff6b6b, #ffa500, #ffd700);
+            height: 6px;
+            background: linear-gradient(90deg, #ff6b6b, #ffa500, #ffd700, #ffa500, #ff6b6b);
         }
 
         .stats-card h2 {
             text-align: center;
-            font-size: 2.4em;
+            font-size: 2.6em;
             color: #ffd700;
-            margin-bottom: 25px;
-            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
-            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        .stats-card h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            border-radius: 2px;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 25px;
         }
 
         .stat-item {
-            background: rgba(45, 55, 72, 0.8);
-            border-radius: 15px;
-            padding: 20px 15px;
+            background: rgba(45, 55, 72, 0.9);
+            border-radius: 20px;
+            padding: 25px 15px;
             text-align: center;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            transition: all 0.3s ease;
+            border: 3px solid rgba(255, 215, 0, 0.25);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
+            z-index: -1;
         }
 
         .stat-item:hover {
-            background: rgba(65, 75, 92, 0.9);
-            transform: translateY(-5px);
+            background: rgba(65, 75, 92, 0.95);
+            transform: translateY(-8px) scale(1.05);
             border-color: #ffd700;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
         }
 
         .stat-item h3 {
             color: #a0aec0;
-            font-size: 1.3em;
-            margin-bottom: 10px;
+            font-size: 1.4em;
+            margin-bottom: 15px;
             font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .stat-item p {
             color: #ff6b6b;
-            font-size: 2.1em;
+            font-size: 2.4em;
             font-weight: bold;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        .stat-item p::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+            border-radius: 3px;
         }
 
         .audio-section {
             width: 100%;
-            background: rgba(30, 41, 59, 0.95);
-            border-radius: 20px;
-            padding: 35px;
-            margin: 30px 0;
+            background: rgba(30, 41, 59, 0.97);
+            border-radius: 24px;
+            padding: 40px;
+            margin: 35px 0;
             text-align: center;
-            border: 3px solid #ffd700;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            border: 4px solid #ffd700;
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.7),
+                inset 0 0 30px rgba(255, 215, 0, 0.15);
             position: relative;
             overflow: hidden;
         }
@@ -259,24 +337,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.08) 0%, transparent 65%);
             z-index: 0;
         }
 
         .audio-section h2 {
             position: relative;
             z-index: 1;
-            font-size: 2.3em;
+            font-size: 2.5em;
             color: #ff6b6b;
-            margin-bottom: 25px;
-            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
-        }
-
-        .audio-container {
-            position: relative;
-            max-width: 550px;
-            margin: 0 auto;
-            z-index: 1;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
         }
 
         .audio-btn {
@@ -284,29 +356,37 @@
             color: white;
             border: none;
             width: 100%;
-            padding: 18px 20px;
-            font-size: 1.6em;
+            max-width: 600px;
+            padding: 22px 25px;
+            font-size: 1.9em;
             font-family: 'MedievalSharp', 'Arial', sans-serif;
-            border-radius: 15px;
+            border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 
-                0 5px 15px rgba(255, 105, 180, 0.4),
-                0 0 20px rgba(255, 105, 180, 0.3);
+                0 8px 25px rgba(255, 105, 180, 0.6),
+                0 0 35px rgba(255, 105, 180, 0.5),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
             position: relative;
             overflow: hidden;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            z-index: 2;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
         }
 
         .audio-btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.07);
             box-shadow: 
-                0 8px 20px rgba(255, 105, 180, 0.6),
-                0 0 30px rgba(255, 105, 180, 0.5);
+                0 12px 30px rgba(255, 105, 180, 0.8),
+                0 0 45px rgba(255, 105, 180, 0.7),
+                inset 0 0 25px rgba(255, 255, 255, 0.3);
         }
 
         .audio-btn:active {
-            transform: scale(0.97);
+            transform: scale(0.98) translateY(3px);
+            box-shadow: 
+                0 4px 15px rgba(255, 105, 180, 0.6),
+                0 0 25px rgba(255, 105, 180, 0.5);
         }
 
         .audio-btn::after {
@@ -316,8 +396,9 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s;
+            z-index: -1;
         }
 
         .audio-btn:hover::after {
@@ -326,64 +407,88 @@
 
         .trophy-count {
             text-align: center;
-            font-size: 1.8em;
+            font-size: 2em;
             color: #ffd700;
-            margin-top: 15px;
+            margin-top: 25px;
             font-weight: bold;
-            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
             z-index: 1;
             position: relative;
+            letter-spacing: 2px;
+        }
+
+        .trophy-count::before {
+            content: '🏆 ';
+            font-size: 1.4em;
         }
 
         .footer {
             text-align: center;
-            padding: 25px;
-            background: rgba(25, 35, 65, 0.95);
-            border-top: 3px solid #ff6b6b;
-            font-size: 1.1em;
+            padding: 30px;
+            background: rgba(25, 35, 65, 0.97);
+            border-top: 4px solid #ff6b6b;
+            font-size: 1.2em;
             color: #a0aec0;
             margin-top: 20px;
+            letter-spacing: 1px;
+        }
+
+        .sound-wave {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #ffd700, transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            transform: scale(0);
+            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 3em;
+                font-size: 3.2em;
             }
             
             .level-badge {
-                width: 65px;
-                height: 65px;
-                font-size: 1.8em;
-                top: 20px;
-                right: 20px;
+                width: 80px;
+                height: 80px;
+                font-size: 2.2em;
+                top: 25px;
+                right: 25px;
             }
             
             .header p {
-                font-size: 1.3em;
+                font-size: 1.5em;
             }
             
             .content {
-                padding: 25px 15px;
+                padding: 30px 20px;
             }
             
             .stats-card h2,
             .audio-section h2 {
-                font-size: 2em;
+                font-size: 2.1em;
             }
             
             .stat-item p {
-                font-size: 1.8em;
+                font-size: 2em;
             }
             
             .audio-btn {
-                font-size: 1.4em;
-                padding: 15px 15px;
+                font-size: 1.6em;
+                padding: 18px 20px;
+            }
+            
+            .trophy-count {
+                font-size: 1.7em;
             }
         }
 
         @media (max-width: 480px) {
             .header h1 {
-                font-size: 2.5em;
+                font-size: 2.7em;
+                letter-spacing: 2px;
             }
             
             .stats-grid {
@@ -391,27 +496,34 @@
             }
             
             .level-badge {
-                width: 60px;
-                height: 60px;
-                font-size: 1.6em;
+                width: 70px;
+                height: 70px;
+                font-size: 1.9em;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .peka-container {
+                max-width: 95%;
+            }
+            
+            .audio-btn {
+                font-size: 1.5em;
+                padding: 16px 15px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="arena-bg"></div>
-    
     <div class="container">
         <div class="header">
             <div class="level-badge">15</div>
             <h1>⚔️ P.E.K.K.A ⚔️</h1>
-            <p>La Guerrera Invencible</p>
+            <p>LA GUERRERA INVENCIBLE</p>
         </div>
 
         <div class="content">
             <div class="peka-container">
-                <!-- Nota: El enlace de ibb.co proporcionado parece estar incompleto. 
-                     Usa este placeholder o reemplaza con tu imagen real -->
                 <img src="https://files.catbox.moe/yvqd8r.jpg" alt="P.E.K.K.A Nivel 15" class="peka-image" id="pekaImage">
             </div>
 
@@ -439,13 +551,11 @@
 
             <div class="audio-section">
                 <h2>¡ESCUCHA SU ATAQUE!</h2>
-                <div class="audio-container">
-                    <button class="audio-btn" id="playBtn">
-                        🔊 ¡ACTIVAR MODO P.E.K.K.A! 🔊
-                    </button>
-                </div>
+                <button class="audio-btn" id="playBtn">
+                    🔊 ¡ACTIVAR MODO P.E.K.K.A! 🔊
+                </button>
                 <div class="trophy-count">
-                    Trofeos requeridos: 3,800+
+                    TROFEOS REQUERIDOS: 3,800+
                 </div>
             </div>
         </div>
@@ -455,85 +565,148 @@
         </div>
     </div>
 
+    <audio id="pekaAudio" preload="auto">
+        <source src="https://files.catbox.moe/pwv8x2.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
     <script>
-        // Cargar imagen alternativa si falla la principal
+        // Manejar carga de imagen fallback
         document.getElementById('pekaImage').onerror = function() {
-            this.src = 'https://i.ibb.co/7yHqH1F/peka-cr.png'; // Imagen fallback de P.E.K.K.A
+            // Usar imagen alternativa de P.E.K.K.A si falla
+            this.src = 'https://i.ibb.co/7yHqH1F/peka-cr.png';
+            this.alt = 'P.E.K.K.A Nivel 15 - Imagen alternativa';
         };
 
-        // Reproducir sonido desde myinstants (usando iframe popup)
-        document.getElementById('playBtn').addEventListener('click', function() {
-            // Abrir el sonido en una ventana emergente de MyInstants
-            window.open('https://www.myinstants.com/media/sounds/mimimi-clash-royale.mp3', '_blank');
-            
-            // Efecto visual al hacer clic
-            this.innerHTML = '⚔️ ¡P.E.K.K.A ATACANDO! ⚔️';
-            this.style.background = 'linear-gradient(135deg, #ffd700 0%, #ff8c00 100%)';
-            this.style.color = '#333';
-            
-            // Efecto de pantalla temblando
-            document.body.style.animation = 'screenShake 0.5s';
-            
-            // Restaurar botón después de 3 segundos
-            setTimeout(() => {
-                this.innerHTML = '🔊 ¡ACTIVAR MODO P.E.K.K.A! 🔊';
-                this.style.background = 'linear-gradient(135deg, #ff6b6b 0%, #ff416c 100%)';
-                this.style.color = 'white';
-            }, 3000);
+        // Reproducir sonido con efectos visuales
+        const audio = document.getElementById('pekaAudio');
+        const playBtn = document.getElementById('playBtn');
+        let isPlaying = false;
+
+        playBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                audio.pause();
+                audio.currentTime = 0;
+                playBtn.innerHTML = '🔊 ¡ACTIVAR MODO P.E.K.K.A! 🔊';
+                playBtn.style.background = 'linear-gradient(135deg, #ff6b6b 0%, #ff416c 100%)';
+                isPlaying = false;
+                return;
+            }
+
+            // Reproducir audio
+            audio.play().then(() => {
+                // Efectos visuales
+                playBtn.innerHTML = '⚔️ ¡P.E.K.K.A ATACANDO! ⚔️';
+                playBtn.style.background = 'linear-gradient(135deg, #ffd700 0%, #ff8c00 100%)';
+                playBtn.style.color = '#333';
+                playBtn.style.textShadow = '0 3px 8px rgba(0,0,0,0.7)';
+                isPlaying = true;
+
+                // Efecto de temblor de pantalla
+                document.body.style.animation = 'screenShake 0.8s';
+                
+                // Crear ondas de sonido
+                createSoundWaves(playBtn.getBoundingClientRect());
+
+                // Restaurar botón cuando termina el audio
+                audio.onended = () => {
+                    setTimeout(() => {
+                        playBtn.innerHTML = '🔊 ¡ACTIVAR MODO P.E.K.K.A! 🔊';
+                        playBtn.style.background = 'linear-gradient(135deg, #ff6b6b 0%, #ff416c 100%)';
+                        playBtn.style.color = 'white';
+                        playBtn.style.textShadow = '0 3px 6px rgba(0,0,0,0.6)';
+                        isPlaying = false;
+                    }, 500);
+                };
+            }).catch(error => {
+                console.log('Error al reproducir audio:', error);
+                alert('¡Haz clic en el botón nuevamente para permitir el audio! Los navegadores requieren interacción del usuario para reproducir sonido.');
+            });
         });
 
-        // Animación de temblor de pantalla
+        // Animación de temblor
         const style = document.createElement('style');
         style.innerHTML = `
             @keyframes screenShake {
                 0%, 100% { transform: translateX(0); }
-                10%, 30%, 50%, 70%, 90% { transform: translateX(-15px); }
-                20%, 40%, 60%, 80% { transform: translateX(15px); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-18px); }
+                20%, 40%, 60%, 80% { transform: translateX(18px); }
             }
         `;
         document.head.appendChild(style);
 
-        // Efecto de partículas flotantes (chispas mágicas)
-        function createParticle() {
+        // Crear ondas de sonido alrededor del botón
+        function createSoundWaves(rect) {
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const wave = document.createElement('div');
+                    wave.className = 'sound-wave';
+                    wave.style.left = `${centerX}px`;
+                    wave.style.top = `${centerY}px`;
+                    document.body.appendChild(wave);
+                    
+                    wave.animate([
+                        { 
+                            transform: 'scale(0.2)',
+                            opacity: 0.9
+                        },
+                        { 
+                            transform: 'scale(3.5)',
+                            opacity: 0
+                        }
+                    ], {
+                        duration: 800,
+                        easing: 'cubic-bezier(0.1, 0.9, 0.4, 1)'
+                    });
+                    
+                    setTimeout(() => wave.remove(), 800);
+                }, i * 100);
+            }
+        }
+
+        // Efecto de partículas doradas flotando
+        function createGoldenParticle() {
             const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.position = 'absolute';
-            particle.style.width = '8px';
-            particle.style.height = '8px';
+            particle.style.position = 'fixed';
+            particle.style.width = `${Math.random() * 6 + 4}px`;
+            particle.style.height = particle.style.width;
             particle.style.background = 'radial-gradient(circle, #ffd700, #ff8c00)';
             particle.style.borderRadius = '50%';
             particle.style.pointerEvents = 'none';
             particle.style.zIndex = '1000';
-            
-            const size = Math.random() * 10 + 5;
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
             particle.style.left = `${Math.random() * 100}%`;
-            particle.style.top = `${window.innerHeight}px`;
-            particle.style.opacity = '0.8';
+            particle.style.top = `${window.innerHeight + 20}px`;
+            particle.style.opacity = '0.85';
             
             document.body.appendChild(particle);
             
             // Animación
             const animation = particle.animate([
                 { 
-                    transform: `translate(0, 0) scale(0.2)`,
-                    opacity: 0.8
-                },
-                { 
-                    transform: `translate(${(Math.random() - 0.5) * 100}px, -${window.innerHeight * 0.7}px) scale(1)`,
+                    transform: `translate(${(Math.random() - 0.5) * 40}px, -${window.innerHeight * 0.8}px) rotate(${Math.random() * 360}deg)`,
                     opacity: 0
                 }
             ], {
-                duration: 2000 + Math.random() * 1000,
-                easing: 'cubic-bezier(0.1, 0.8, 0.2, 1)'
+                duration: 3000 + Math.random() * 2000,
+                easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)'
             });
             
             animation.onfinish = () => particle.remove();
         }
 
         // Generar partículas continuamente
-        setInterval(createParticle, 200);
+        setInterval(createGoldenParticle, 300);
+
+        // Auto-play workaround (requiere interacción del usuario primero)
+        document.addEventListener('click', function() {
+            // Precargar audio silenciosamente después de la primera interacción
+            if (audio.readyState === 0) {
+                audio.load();
+            }
+        }, { once: true });
     </script>
 </body>
 </html>
