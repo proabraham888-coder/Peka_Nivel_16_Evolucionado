@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P.E.K.K.A Nivel 15 - Clash Royale</title>
+    <title>⚔️ P.E.K.K.A NIVEL 15 - Clash Royale ⚔️</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,44 +13,129 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'MedievalSharp', 'Arial', sans-serif;
+            background: radial-gradient(circle at center, #0a0e17 0%, #070a10 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
+            color: #e0e0e0;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230a0e17"/><path d="M0 50 L100 50" stroke="%231a2335" stroke-width="1" opacity="0.3"/><path d="M50 0 L50 100" stroke="%231a2335" stroke-width="1" opacity="0.3"/></svg>');
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        .arena-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, transparent 70%);
+            z-index: -1;
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
-            background: rgba(0, 0, 0, 0.85);
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            width: 95%;
+            max-width: 1100px;
+            background: rgba(15, 23, 42, 0.92);
+            border-radius: 25px;
+            box-shadow: 
+                0 0 40px rgba(255, 105, 180, 0.4),
+                0 0 80px rgba(138, 43, 226, 0.3);
             overflow: hidden;
             position: relative;
+            border: 4px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500, #ffd700, #ff6b6b);
+            z-index: -1;
+            border-radius: 29px;
+            animation: gradientRotate 8s linear infinite;
+        }
+
+        @keyframes gradientRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .header {
-            background: linear-gradient(120deg, #ff416c, #ff4b2b);
-            padding: 30px;
             text-align: center;
+            padding: 35px 20px;
             position: relative;
+            background: rgba(25, 35, 65, 0.9);
+            border-bottom: 3px solid #ffd700;
         }
 
         .header h1 {
-            color: white;
-            font-size: 3.5em;
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-            letter-spacing: 2px;
+            font-size: 4.2em;
+            background: linear-gradient(45deg, #ff6b6b, #ffd700, #ff416c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(255, 105, 180, 0.5);
+            letter-spacing: 3px;
             margin-bottom: 10px;
+            position: relative;
+            animation: glowText 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowText {
+            from { text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 105, 180, 0.8); }
+            to { text-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 30px rgba(255, 105, 180, 1), 0 0 40px rgba(255, 105, 180, 0.8); }
         }
 
         .header p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2em;
+            font-size: 1.6em;
+            color: #ffd700;
             margin-top: 10px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .level-badge {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            background: radial-gradient(circle, #ffd700 0%, #ff8c00 100%);
+            color: #333;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.2em;
+            font-weight: bold;
+            box-shadow: 
+                0 0 15px rgba(255, 215, 0, 0.8),
+                0 0 30px rgba(255, 165, 0, 0.7);
+            border: 4px solid #8b4513;
+            animation: badgePulse 1.5s infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 165, 0, 0.7); }
+            50% { transform: scale(1.08); box-shadow: 0 0 25px rgba(255, 215, 0, 1), 0 0 45px rgba(255, 165, 0, 1); }
         }
 
         .content {
@@ -59,164 +145,279 @@
             align-items: center;
         }
 
+        .peka-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin: 30px 0;
+            perspective: 1000px;
+        }
+
         .peka-image {
             width: 100%;
-            max-width: 600px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-            margin: 30px 0;
-            animation: pulse 2s infinite;
-            border: 5px solid #ff416c;
+            border-radius: 20px;
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.8),
+                0 0 30px rgba(255, 105, 180, 0.4);
+            border: 4px solid rgba(255, 215, 0, 0.3);
+            transition: transform 0.3s ease;
+            animation: float 3s ease-in-out infinite;
         }
 
-        .stats {
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .peka-image:hover {
+            transform: scale(1.03) rotateY(5deg);
+        }
+
+        .stats-card {
             width: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-            border: 2px solid #ff416c;
+            background: rgba(30, 41, 59, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 3px solid #ff6b6b;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
         }
 
-        .stats h2 {
-            color: #ff416c;
+        .stats-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #ffa500, #ffd700);
+        }
+
+        .stats-card h2 {
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 2em;
+            font-size: 2.4em;
+            color: #ffd700;
+            margin-bottom: 25px;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+            letter-spacing: 2px;
         }
 
-        .stat-grid {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
-            text-align: center;
         }
 
         .stat-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(45, 55, 72, 0.8);
+            border-radius: 15px;
+            padding: 20px 15px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(65, 75, 92, 0.9);
+            transform: translateY(-5px);
+            border-color: #ffd700;
         }
 
         .stat-item h3 {
-            color: white;
+            color: #a0aec0;
             font-size: 1.3em;
             margin-bottom: 10px;
+            font-weight: normal;
         }
 
         .stat-item p {
-            color: #ff416c;
-            font-size: 1.8em;
+            color: #ff6b6b;
+            font-size: 2.1em;
             font-weight: bold;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-        .audio-controls {
+        .audio-section {
             width: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
+            background: rgba(30, 41, 59, 0.95);
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
             text-align: center;
-            border: 2px solid #ff416c;
+            border: 3px solid #ffd700;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
         }
 
-        .audio-controls h2 {
-            color: #ff416c;
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-
-        audio {
-            width: 100%;
-            max-width: 500px;
-            outline: none;
-        }
-
-        .level-badge {
+        .audio-section::before {
+            content: '';
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(120deg, #ffd700, #ff8c00);
-            color: #333;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.5em;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            animation: glow 2s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            z-index: 0;
         }
 
-        .attack-button {
-            background: linear-gradient(120deg, #ff416c, #ff4b2b);
+        .audio-section h2 {
+            position: relative;
+            z-index: 1;
+            font-size: 2.3em;
+            color: #ff6b6b;
+            margin-bottom: 25px;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .audio-container {
+            position: relative;
+            max-width: 550px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff416c 100%);
             color: white;
-            padding: 15px 50px;
             border: none;
-            border-radius: 50px;
-            font-size: 1.3em;
-            font-weight: bold;
+            width: 100%;
+            padding: 18px 20px;
+            font-size: 1.6em;
+            font-family: 'MedievalSharp', 'Arial', sans-serif;
+            border-radius: 15px;
             cursor: pointer;
-            margin: 20px 0;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 5px 15px rgba(255, 105, 180, 0.4),
+                0 0 20px rgba(255, 105, 180, 0.3);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 2px;
         }
 
-        .attack-button:hover {
+        .audio-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
+            box-shadow: 
+                0 8px 20px rgba(255, 105, 180, 0.6),
+                0 0 30px rgba(255, 105, 180, 0.5);
         }
 
-        .attack-button:active {
-            transform: scale(0.95);
+        .audio-btn:active {
+            transform: scale(0.97);
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.02);
-            }
+        .audio-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
         }
 
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 20px #ffd700;
-            }
-            50% {
-                box-shadow: 0 0 30px #ff8c00;
-            }
+        .audio-btn:hover::after {
+            left: 100%;
+        }
+
+        .trophy-count {
+            text-align: center;
+            font-size: 1.8em;
+            color: #ffd700;
+            margin-top: 15px;
+            font-weight: bold;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+            z-index: 1;
+            position: relative;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: rgba(25, 35, 65, 0.95);
+            border-top: 3px solid #ff6b6b;
+            font-size: 1.1em;
+            color: #a0aec0;
+            margin-top: 20px;
         }
 
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 2.5em;
+                font-size: 3em;
+            }
+            
+            .level-badge {
+                width: 65px;
+                height: 65px;
+                font-size: 1.8em;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .header p {
+                font-size: 1.3em;
             }
             
             .content {
-                padding: 20px;
+                padding: 25px 15px;
             }
             
-            .stat-grid {
+            .stats-card h2,
+            .audio-section h2 {
+                font-size: 2em;
+            }
+            
+            .stat-item p {
+                font-size: 1.8em;
+            }
+            
+            .audio-btn {
+                font-size: 1.4em;
+                padding: 15px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .stats-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .level-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6em;
             }
         }
     </style>
 </head>
 <body>
+    <div class="arena-bg"></div>
+    
     <div class="container">
         <div class="header">
-            <div class="level-badge">NIVEL 15</div>
+            <div class="level-badge">15</div>
             <h1>⚔️ P.E.K.K.A ⚔️</h1>
-            <p>La guerrera más poderosa de Clash Royale</p>
+            <p>La Guerrera Invencible</p>
         </div>
 
         <div class="content">
-            <img src="https://ibb.co/qMhZ6JtS"alt="P.E.K.K.A Nivel 15" class="peka-image">
+            <div class="peka-container">
+                <!-- Nota: El enlace de ibb.co proporcionado parece estar incompleto. 
+                     Usa este placeholder o reemplaza con tu imagen real -->
+                <img src="https://files.catbox.moe/yvqd8r.jpg" alt="P.E.K.K.A Nivel 15" class="peka-image" id="pekaImage">
+            </div>
 
-            <div class="stats">
-                <h2>📊 ESTADÍSTICAS</h2>
-                <div class="stat-grid">
+            <div class="stats-card">
+                <h2>ESTADÍSTICAS ÉPICAS</h2>
+                <div class="stats-grid">
                     <div class="stat-item">
                         <h3>Daño</h3>
                         <p>1,250</p>
@@ -230,61 +431,109 @@
                         <p>Media</p>
                     </div>
                     <div class="stat-item">
-                        <h3>Coste</h3>
-                        <p>7 Elixir</p>
+                        <h3>Elixir</h3>
+                        <p>7</p>
                     </div>
                 </div>
             </div>
 
-            <div class="audio-controls">
-                <h2>🎵 SONIDO DE ATAQUE</h2>
-                <audio controls>
-                    <source src="peka_attack.mp3" type="audio/mpeg">
-                    Tu navegador no soporta el elemento de audio.
-                </audio>
-                <p style="color: white; margin-top: 10px; font-size: 0.9em;">
-                    Nota: Reemplaza "peka_attack.mp3" con tu archivo de audio de P.E.K.K.A
-                </p>
+            <div class="audio-section">
+                <h2>¡ESCUCHA SU ATAQUE!</h2>
+                <div class="audio-container">
+                    <button class="audio-btn" id="playBtn">
+                        🔊 ¡ACTIVAR MODO P.E.K.K.A! 🔊
+                    </button>
+                </div>
+                <div class="trophy-count">
+                    Trofeos requeridos: 3,800+
+                </div>
             </div>
+        </div>
 
-            <button class="attack-button" onclick="playSound()">¡ATAQUE P.E.K.K.A!</button>
+        <div class="footer">
+            <p>Clash Royale™ - P.E.K.K.A Nivel 15 • Sitio web fan-made</p>
         </div>
     </div>
 
     <script>
-        function playSound() {
-            const audio = document.querySelector('audio');
-            if (audio) {
-                audio.currentTime = 0;
-                audio.play().catch(error => {
-                    console.log('Error al reproducir audio:', error);
-                });
-            }
-        }
+        // Cargar imagen alternativa si falla la principal
+        document.getElementById('pekaImage').onerror = function() {
+            this.src = 'https://i.ibb.co/7yHqH1F/peka-cr.png'; // Imagen fallback de P.E.K.K.A
+        };
 
-        // Efectos adicionales
-        document.addEventListener('DOMContentLoaded', function() {
-            const attackButton = document.querySelector('.attack-button');
+        // Reproducir sonido desde myinstants (usando iframe popup)
+        document.getElementById('playBtn').addEventListener('click', function() {
+            // Abrir el sonido en una ventana emergente de MyInstants
+            window.open('https://www.myinstants.com/media/sounds/mimimi-clash-royale.mp3', '_blank');
             
-            attackButton.addEventListener('click', function() {
-                // Efecto de ataque
-                document.body.style.animation = 'shake 0.5s';
-                setTimeout(() => {
-                    document.body.style.animation = '';
-                }, 500);
-            });
+            // Efecto visual al hacer clic
+            this.innerHTML = '⚔️ ¡P.E.K.K.A ATACANDO! ⚔️';
+            this.style.background = 'linear-gradient(135deg, #ffd700 0%, #ff8c00 100%)';
+            this.style.color = '#333';
+            
+            // Efecto de pantalla temblando
+            document.body.style.animation = 'screenShake 0.5s';
+            
+            // Restaurar botón después de 3 segundos
+            setTimeout(() => {
+                this.innerHTML = '🔊 ¡ACTIVAR MODO P.E.K.K.A! 🔊';
+                this.style.background = 'linear-gradient(135deg, #ff6b6b 0%, #ff416c 100%)';
+                this.style.color = 'white';
+            }, 3000);
         });
 
-        // Animación de shake
+        // Animación de temblor de pantalla
         const style = document.createElement('style');
         style.innerHTML = `
-            @keyframes shake {
+            @keyframes screenShake {
                 0%, 100% { transform: translateX(0); }
-                10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
-                20%, 40%, 60%, 80% { transform: translateX(10px); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-15px); }
+                20%, 40%, 60%, 80% { transform: translateX(15px); }
             }
         `;
         document.head.appendChild(style);
+
+        // Efecto de partículas flotantes (chispas mágicas)
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.position = 'absolute';
+            particle.style.width = '8px';
+            particle.style.height = '8px';
+            particle.style.background = 'radial-gradient(circle, #ffd700, #ff8c00)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1000';
+            
+            const size = Math.random() * 10 + 5;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${window.innerHeight}px`;
+            particle.style.opacity = '0.8';
+            
+            document.body.appendChild(particle);
+            
+            // Animación
+            const animation = particle.animate([
+                { 
+                    transform: `translate(0, 0) scale(0.2)`,
+                    opacity: 0.8
+                },
+                { 
+                    transform: `translate(${(Math.random() - 0.5) * 100}px, -${window.innerHeight * 0.7}px) scale(1)`,
+                    opacity: 0
+                }
+            ], {
+                duration: 2000 + Math.random() * 1000,
+                easing: 'cubic-bezier(0.1, 0.8, 0.2, 1)'
+            });
+            
+            animation.onfinish = () => particle.remove();
+        }
+
+        // Generar partículas continuamente
+        setInterval(createParticle, 200);
     </script>
 </body>
 </html>
